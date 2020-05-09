@@ -5,7 +5,7 @@ def caesar_cipher string, shift = 0
     else
       letter_case = letter.ord < 97 ? ('A'..'Z').to_a : ('a'..'z').to_a
       index = letter_case.index(letter) + shift
-      index = index > 25 || index < -26 ? (index % 26) : index
+      index = (index % 26) if index > 25 || index < -26
       letter_case[index]
     end
   end
